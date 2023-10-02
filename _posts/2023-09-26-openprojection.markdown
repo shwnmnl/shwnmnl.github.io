@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AIxMH - OpenProjection: An Introduction to Machine Learning in Python for Mental Health"
+title:  "OpenProjection: Machine Learning in Python for Mental Health"
 date:   2023-09-26 02:59:46 -0400
 categories: jekyll update
 ---
