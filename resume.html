@@ -6,7 +6,7 @@
     <meta name="description" content="A brief description of my web page.">
     <meta name="keywords" content="HTML, CSS, JavaScript, web development">
     <meta name="author" content="Shawn Manuel">
-    <title>ψ shwnmnl - Resume</title>
+    <title>ψ shwnmnl - resume</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,14 +45,14 @@
     .right-column {
         flex: 3;
     }
-    h1, h4 {
-        margin: 10px 0;
+    h1 {
+        margin: 20px 0 10px; /* Adjust top and bottom margins for tighter spacing */
     }
     h2 {
     margin: 15px 0px 5px; /* Adjust top and bottom margins for tighter spacing */
     }
     h2:first-of-type {
-        margin-top: 75px; /* Larger top margin for the first h2 */
+        margin-top: 10px; /* Larger top margin for the first h2 */
     }
     h3 {
         margin: 0px 0 0px; /* Adjust top and bottom margins for tighter spacing */
@@ -79,6 +79,14 @@
 
     .social-icons a:hover {
         color: #ff00ff;
+    }
+    .box {
+        background-color: #dddddd;
+        width: 350px;
+        height: 25px;
+        margin-top: 75px;
+        padding: 10px;
+        text-align: left;
     }
     /* TO-DO implement section below for thin/mobile view */
     /* @media (max-width: 768px) {
@@ -121,6 +129,13 @@
             </div>
         </div>
         <div class="right-column">
+            <div class="box">
+                <p><a href="index.html">[home]</a>&emsp;&emsp;
+                    <a href="resume.html">[resume]</a>&emsp;&emsp;
+                    <a href="projects.html">[projects]</a>&emsp;&emsp;
+                    <a href="blog.html">[blog]</a></p>
+            </div>
+            <h1>Resume</h1>
             <h2>Education</h2>
             <h3><b>Ph.D. Psychology</b></h3>
             <p>Cognitive and Computational Neuroscience specialization<br>Université de Montréal, Fall 2024</p>

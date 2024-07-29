@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A brief description of my web page.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, web development">
+    <meta name="author" content="Shawn Manuel">
+    <title>ψ shwnmnl - projects</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<style>
+    body {
+        background-color: #f0f0f0;
+        font-family: 'Kanit', sans-serif;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        margin-left: 5%;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .left-column {
+            flex: 1;
+            max-width: 300px;
+            margin-right: 20px;
+    }
+    .left-column img {
+        display: block;
+        width: 75%;
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        margin-top: 25%;
+    }
+    .right-column {
+        flex: 3;
+    }
+    h1 {
+        margin: 20px 0 10px; /* Adjust top and bottom margins for tighter spacing */
+    }
+    h2 {
+    margin: 15px 0px 5px; /* Adjust top and bottom margins for tighter spacing */
+    }
+    h2:first-of-type {
+        margin-top: 10px; /* Larger top margin for the first h2 */
+    }
+    h3 {
+        margin: 0px 0 0px; /* Adjust top and bottom margins for tighter spacing */
+    }
+    p {
+        margin: 0 0 5px; /* Adjust bottom margin for tighter spacing */
+        max-width: 700px;
+    }
+    .hanging-indent {
+        text-indent: -1.5em; /* Pull the first line back */
+        padding-left: 1.5em; /* Indent all lines except the first one */
+    }
+    .social-icons {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    }
+
+    .social-icons a {
+        color: #333;
+        font-size: 2em; /* Change the size of the icons here */
+        margin: 0 5px;
+        transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+        color: #ff00ff;
+    }
+    .box {
+        background-color: #dddddd;
+        width: 350px;
+        height: 25px;
+        margin-top: 75px;
+        padding: 10px;
+        text-align: left;
+    }
+    .box2 {
+        background-color: #e6e3e3;
+        width: 75%;
+        height: 300;
+        padding: 10px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    /* TO-DO implement section below for thin/mobile view */
+    /* @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            margin-left: 0;
+        }
+
+        .left-column, .right-column {
+            max-width: 100%;
+            margin-right: 0;
+            text-align: center;
+        }
+
+        .left-column img {
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+    } */
+</style>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <img src="assets/myface.JPG" alt="My Face">
+            <h1>Shawn Manuel</h1>
+            <div class="social-icons">
+                <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>&emsp;
+                <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>&emsp;
+                <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank"><i class="fab fa-linkedin"></i></a>&emsp;
+                <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="box">
+                <p><a href="index.html">[home]</a>&emsp;&emsp;
+                    <a href="resume.html">[resume]</a>&emsp;&emsp;
+                    <a href="projects.html">[projects]</a>&emsp;&emsp;
+                    <a href="blog.html">[blog]</a></p>
+            </div>
+            <h1>Projects</h1>
+            <!-- <div class="box2">
+                <h2>DeepProjection</h2>
+                <img src="assets/trispace.png" alt="Recent Project Logo" style="width: 200; height: 150px; border-radius: 20%">
+                <p>TL;DR: This is my master's project, which aims to quantify and compare verbal reports of subjective experience with respect to mental health.</p>
+            </div>
+            <br> -->
+            <div class="box2">
+                <h2><a href="https://autoarchivist.pythonanywhere.com">SCP AutoArchivist</a></h2>
+                <img src="assets/RAISA.png" alt="RAISA Logo" style="margin: 0 auto; width: 200; height: 150px; border-radius: 20%">
+                <p>TL;DR: An email subscription service that sends a random SCP item from the SCP Foundation wiki daily, as well as a <a href="https://autoarchivist.pythonanywhere.com">web app</a> to browse random items and create SCP items with GenAI.</p>
+            </div>
+            <br>
+            <div class="box2">
+                <h2><a href="https://github.com/shwnmnl/OpenProjection">OpenProjection</a></h2>
+                <img src="assets/OpenProjection.png" alt="OpenProjection Logo" style="margin: 0 auto; width: 200; height: 150px; border-radius: 5%">
+                <p>TL;DR: NLP tutorial in Python for psychological data.</p>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<!-- 
+<style>
+    body {
+        background-color: #f0f0f0;
+        font-family: 'Kanit', sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        font-size: 3em;
+        background: linear-gradient(0deg, #ff00ff, #00eeff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 200;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .box {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        margin: 20px 0;
+        padding: 20px;
+        text-align: left;
+    }
+    .box-small {
+        width: 48%;
+        margin: 0 2.5%;
+    }
+    .box-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+</style>
+<body>
+    <h2>Projects</h2>
+    <div class="container">
+        <div class="box">
+            <h2>DeepProjection</h2>
+            <img src="assets/trispace.png" alt="Recent Project Logo" style="display: block; margin: 0 auto; width: 200; height: 250px; border-radius: 20%; margin-top: 2em;">
+            <p>TL;DR: This is my master's project, which aims to quantify and compare verbal reports of subjective experience with respect to mental health. 
+                <br>
+                <br>
+                <a href="http://www.github.com/shwnmnl/DeepProjection">Learn more.</a>
+            </p>
+        </div>
+        <div class="box-container">
+            <div class="box box-small">
+                <h2>SCP AutoArchivist</h2>
+                <img src="assets/RAISA.png" alt="RAISA Logo" style="display: block; margin: 0 auto; width: 300; height: 200px; border-radius: 50%; margin-top: 2em;">
+                <p>TL;DR: An email subscription service that sends a random SCP item from the SCP Foundation wiki daily, as well as a web app to browse random items and create SCP items with GenAI.
+                    <br>
+                    <br>
+                    <a href="http://autoarchivist.pythonanywhere.com">Sign up here.</a>
+                </p>
+            </div>
+            <div class="box box-small">
+                <h2>OpenProjection</h2>
+                <img src="assets/OpenProjection.png" alt="OpenProjection Logo" style="display: block; margin: 0 auto; width: 300; height: 180px; border-radius: 50%; margin-top: 2em; margin-bottom: 40px">
+                <p>TL;DR: Machine learning tutorial in Python using psychological data and NLP.<br><br>
+                    OpenProjection is an open-source machine learning project designed in the spirit of translational science. Its main use is as a beginner friendly tutorial for machine learning in Python using psychological data. 
+                    It covers different types of Supervised Learning problems, including both regression and classification, as well as an embedded Unsupervised Learning problem.
+                    The entire thing can be run from start to finish in <a href="https://colab.research.google.com/github/shwnmnl/OpenProjection/blob/main/OpenProjection.ipynb">Google Colab</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="social-icons">
+        <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</body>
+</html> -->
