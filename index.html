@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
          <a href="resume.html">[Resume]</a>&emsp; 
          <a href="research.html">[Research]</a>&emsp;
          <a href="sideprojects.html">[Side Projects]</a>&emsp;
-         <!-- <details>
+        <details>
             <summary>Ex Profundis</summary>
             <div class="details-content">
                 <p>I‘m interested in computational psychiatry and cognitive neuroscience and aim to develop innovative applications of AI to the study of humans, brains and consciousness.<br><br>
@@ -32,7 +32,7 @@
                 <a href="sideprojects.html">[Side Projects]</a>&emsp;
                 </p>
             </div>
-        </details> -->
+        </details> 
     </p>
     <div class="social-icons">
         <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -41,3 +41,155 @@
         <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
 </body>
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A brief description of my web page.">
+    <meta name="keywords" content="HTML, CSS, JavaScript, web development">
+    <meta name="author" content="Shawn Manuel">
+    <title>ψ shwnmnl</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; position: fixed; top: 0; left: 0; z-index: -1; }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white; /* Ensure your text is visible on the dark background */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img src="assets/latentspace.png" alt="Shawn Manuel" style="display: block; margin: 0 auto; width: 300px; height: 250px; border-radius: 50%; margin-top: 2em;">
+        <h1>ψ shwnmnl</h1>
+        <p>Shawn Manuel<br>
+            M.Sc. student in Psych / AI exploring qualia space computationally.<br><br>
+            <a href="resume.html">[Resume]</a>&emsp; 
+            <a href="research.html">[Research]</a>&emsp;
+            <a href="sideprojects.html">[SideProjects]</a>&emsp;
+        </p>
+        <div class="social-icons">
+            <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Basic Three.js setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create terrains
+        const geometry = new THREE.PlaneGeometry(600, 200, 64, 64);
+
+        // Define gradient colors
+        const colorStart = new THREE.Color(0x793079); // Pink
+        const colorEnd = new THREE.Color(0x480f7a);   // Cyan
+
+        // Function to apply vertex colors for gradient
+        function applyGradientColors(geometry, reverse = false) {
+            const colors = [];
+            for (let i = 0; i < geometry.attributes.position.count; i++) {
+                const y = geometry.attributes.position.getY(i);
+                const t = reverse ? (100 - (y + 100) / 2) / 100 : (y + 100) / 200; // Normalize y to range [0, 1] and reverse if needed
+                const color = new THREE.Color();
+                color.lerpColors(colorStart, colorEnd, t); // Interpolate between start and end colors
+                colors.push(color.r, color.g, color.b);
+            }
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        }
+
+        // Apply gradient colors
+        applyGradientColors(geometry);
+        
+        const geometry2 = geometry.clone();
+        applyGradientColors(geometry2, true); // Reverse gradient for the second terrain
+
+        // Wireframe material with vertex colors
+        const material = new THREE.MeshBasicMaterial({
+            vertexColors: true,
+            wireframe: true
+        });
+
+        const terrain1 = new THREE.Mesh(geometry, material);
+        const terrain2 = new THREE.Mesh(geometry2, material);
+
+
+        // Modify vertices to create bumps and valleys
+        function modifyVertices(geometry) {
+            for (let i = 0; i < geometry.attributes.position.count; i++) {
+                const vertex = new THREE.Vector3().fromBufferAttribute(geometry.attributes.position, i);
+                vertex.z = Math.random() * 5;
+                geometry.attributes.position.setXYZ(i, vertex.x, vertex.y, vertex.z);
+            }
+            geometry.attributes.position.needsUpdate = true;
+        }
+
+        modifyVertices(geometry);
+        modifyVertices(geometry2);
+
+        terrain1.rotation.x = -Math.PI / 2;
+        terrain2.rotation.x = -Math.PI / 2;
+
+        terrain1.position.z = 0;
+        terrain2.position.z = -200;
+
+        scene.add(terrain1);
+        scene.add(terrain2);
+
+        // Lower the camera's position to move the horizon line lower
+        camera.position.set(0, 10, 50); // Adjust the Y position as needed
+        camera.lookAt(new THREE.Vector3(0, 6, 0));
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Move the terrains backwards
+            terrain1.position.z += 0.3;
+            terrain2.position.z += 0.3;
+
+            // Reset position to create an endless effect
+            if (terrain1.position.z >= 200) {
+                terrain1.position.z = terrain2.position.z - 200;
+            }
+            if (terrain2.position.z >= 200) {
+                terrain2.position.z = terrain1.position.z - 200;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
