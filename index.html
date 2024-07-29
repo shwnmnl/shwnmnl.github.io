@@ -62,13 +62,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        body { margin: 0; overflow: hidden; }
+        body { margin: 0; overflow-y: auto; }
         canvas { display: block; position: fixed; top: 0; left: 0; z-index: -1; }
         .content {
             position: relative;
             z-index: 1;
             text-align: center;
             color: white; /* Ensure your text is visible on the dark background */
+            padding: 20px;
         }
     </style>
 </head>
@@ -103,11 +104,11 @@
         const geometry = new THREE.PlaneGeometry(600, 200, 64, 64);
 
         // Define gradient colors
-        const colorStart = new THREE.Color(0x793079); // Pink
-        const colorEnd = new THREE.Color(0x480f7a);   // Cyan
+        const colorStart = new THREE.Color(0x793079); // Purple
+        const colorEnd = new THREE.Color(0x480f7a);   // Pink
 
         // Function to apply vertex colors for gradient
-        function applyGradientColors(geometry, reverse = false) {
+        function applyGradientColors(geometry, reverse = false, colorStart, colorEnd) {
             const colors = [];
             for (let i = 0; i < geometry.attributes.position.count; i++) {
                 const y = geometry.attributes.position.getY(i);
@@ -120,10 +121,10 @@
         }
 
         // Apply gradient colors
-        applyGradientColors(geometry);
+        applyGradientColors(geometry, false, colorStart, colorEnd);
         
         const geometry2 = geometry.clone();
-        applyGradientColors(geometry2, true); // Reverse gradient for the second terrain
+        applyGradientColors(geometry2, true, colorStart, colorEnd); // Reverse gradient for the second terrain
 
         // Wireframe material with vertex colors
         const material = new THREE.MeshBasicMaterial({
@@ -152,7 +153,7 @@
         terrain2.rotation.x = -Math.PI / 2;
 
         terrain1.position.z = 0;
-        terrain2.position.z = -200;
+        terrain2.position.z = -150;
 
         scene.add(terrain1);
         scene.add(terrain2);
@@ -179,11 +180,11 @@
             terrain2.position.z += 0.3;
 
             // Reset position to create an endless effect
-            if (terrain1.position.z >= 200) {
-                terrain1.position.z = terrain2.position.z - 200;
+            if (terrain1.position.z >= 190) {
+                terrain1.position.z = terrain2.position.z - 190;
             }
-            if (terrain2.position.z >= 200) {
-                terrain2.position.z = terrain1.position.z - 200;
+            if (terrain2.position.z >= 190) {
+                terrain2.position.z = terrain1.position.z - 190;
             }
 
             renderer.render(scene, camera);
