@@ -21,6 +21,55 @@
         margin: 0;
         padding: 0;
     }
+    .nav {
+            background-color: black;
+            color: #00a6ff;
+            padding: 0; /* Remove padding to fit the canvas perfectly */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* text-align: center; */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 100px; /* Set a fixed height for the navbar */
+            overflow: hidden; /* Ensure overflow is hidden */
+    }
+    .nav h1.logo {
+        font-size: 2.5em;
+        background: linear-gradient(0deg, #00eeff, #ff00ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+        margin: 0;
+        line-height: 100px;
+        padding-left: 80px;
+        z-index: 10; /* Ensure logo appears on top of the canvas */
+        /* margin-left: 20px; /* Adjust as needed */
+        /* margin-bottom: 0; */ 
+    }
+    .nav .nav-links {
+        display: flex;
+        align-items: center;
+        padding-right: 80px;
+    }
+    .nav .nav-links a {
+        color: #46abee;
+        text-decoration: none;
+        margin: 0 15px;
+        line-height: 100px; /* Vertically center the links */
+        position: relative; /* Ensure links appear on top of the canvas */
+        z-index: 10; /* Ensure links appear on top of the canvas */
+    }
+    .nav-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Place canvas behind the links */
+    }
     h2 {
     font-size: 3em;
     background: linear-gradient(0deg, #ff00ff, #00eeff);
@@ -31,10 +80,127 @@
     margin-right: 5%;
     }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+    // Basic Three.js setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 100, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, 100);
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector('.nav').appendChild(renderer.domElement).classList.add('nav-canvas');
+    });
+
+    // Create terrains
+    const geometry = new THREE.PlaneGeometry(800, 200, 64, 64);
+
+    // Define gradient colors
+    const colorStart = new THREE.Color(0x793079); // Purple
+    const colorEnd = new THREE.Color(0x480f7a);   // Pink
+
+    // Function to apply vertex colors for gradient
+    function applyGradientColors(geometry, reverse = false, colorStart, colorEnd) {
+        const colors = [];
+        for (let i = 0; i < geometry.attributes.position.count; i++) {
+            const y = geometry.attributes.position.getY(i);
+            const t = reverse ? (100 - (y + 100) / 2) / 100 : (y + 100) / 200; // Normalize y to range [0, 1] and reverse if needed
+            const color = new THREE.Color();
+            color.lerpColors(colorStart, colorEnd, t); // Interpolate between start and end colors
+            colors.push(color.r, color.g, color.b);
+        }
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+    }
+
+    // Apply gradient colors
+    applyGradientColors(geometry, false, colorStart, colorEnd);
+    
+    const geometry2 = geometry.clone();
+    applyGradientColors(geometry2, true, colorStart, colorEnd); // Reverse gradient for the second terrain
+
+    // Wireframe material with vertex colors
+    const material = new THREE.MeshBasicMaterial({
+        vertexColors: true,
+        wireframe: true
+    });
+
+    const terrain1 = new THREE.Mesh(geometry, material);
+    const terrain2 = new THREE.Mesh(geometry2, material);
+
+    // Modify vertices to create bumps and valleys
+    function modifyVertices(geometry) {
+        for (let i = 0; i < geometry.attributes.position.count; i++) {
+            const vertex = new THREE.Vector3().fromBufferAttribute(geometry.attributes.position, i);
+            vertex.z = Math.random() * 5;
+            geometry.attributes.position.setXYZ(i, vertex.x, vertex.y, vertex.z);
+        }
+        geometry.attributes.position.needsUpdate = true;
+    }
+
+    modifyVertices(geometry);
+    modifyVertices(geometry2);
+
+    terrain1.rotation.x = -Math.PI / 2;
+    terrain2.rotation.x = -Math.PI / 2;
+
+    terrain1.position.z = 0;
+    terrain2.position.z = -150;
+
+    scene.add(terrain1);
+    scene.add(terrain2);
+
+    // Lower the camera's position to move the horizon line lower
+    camera.position.set(0, 12, 0); // Adjust the Y position as needed
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const width = window.innerWidth;
+        renderer.setSize(width, 100);
+        camera.aspect = width / 100;
+        camera.updateProjectionMatrix();
+    });
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Move the terrains backwards
+        terrain1.position.z += 0.1;
+        terrain2.position.z += 0.1;
+
+        // Reset position to create an endless effect
+        if (terrain1.position.z >= 190) {
+            terrain1.position.z = terrain2.position.z - 190;
+        }
+        if (terrain2.position.z >= 190) {
+            terrain2.position.z = terrain1.position.z - 190;
+        }
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+</script>
 <body>
+    <div class="nav">
+        <h1 class="logo">ψ shwnmnl</h1>
+        <div class="nav-links">
+            <a href="index.html">home</a>&emsp;
+            <a href="resume.html">resume</a>&emsp;
+            <a href="projects.html">projects</a>&emsp;
+            <a href="blog.html">blog</a>&emsp;
+            <a href="about.html">about</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <p>Coming soon, stay tuned.</p>
+    <br>
+    <br>
     <div class="social-icons">
         <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>
