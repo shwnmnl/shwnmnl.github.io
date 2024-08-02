@@ -23,7 +23,8 @@
         margin-left: 0%;
     }
     .nav {
-            background-color: black;
+            position: relative;
+            background-color: transparent;
             color: #00a6ff;
             padding: 0; /* Remove padding to fit the canvas perfectly */
             display: flex;
@@ -35,7 +36,7 @@
             top: 0;
             z-index: 1000;
             height: 100px; /* Set a fixed height for the navbar */
-            overflow: hidden; /* Ensure overflow is hidden */
+            /* overflow: hidden; */
     }
     .nav h1.logo {
         font-size: 2.5em;
@@ -53,7 +54,8 @@
     .nav .nav-links {
         display: flex;
         align-items: center;
-        padding-right: 80px;
+        padding-right: 20px;
+        z-index: 10;
     }
     .nav .nav-links a {
         color: #46abee;
@@ -61,7 +63,7 @@
         margin: 0 15px;
         line-height: 100px; /* Vertically center the links */
         position: relative; /* Ensure links appear on top of the canvas */
-        z-index: 10; /* Ensure links appear on top of the canvas */
+        /* z-index: 10; Ensure links appear on top of the canvas */
     }
     .nav-canvas {
         position: absolute;
@@ -70,6 +72,19 @@
         width: 100%;
         height: 100%;
         z-index: 1; /* Place canvas behind the links */
+    }
+    .nav .nav-toggle {
+        display: none; /* Hide the toggle button by default */
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        color: #46abee;
+        cursor: pointer;
+        position: absolute;
+        z-index:10;
+        right: 20px;
+        top: 20px;
+        /* margin-right:20px; */
     }
     .main-content {
         margin: 0 5%;
@@ -90,7 +105,7 @@
             max-width: 300px;
             margin-right: 20px;
             position: sticky;
-            top: 75px;
+            top: 75px
     }
     .left-column img {
         display: block;
@@ -118,11 +133,11 @@
     }
     p {
         margin: 0 0 5px; /* Adjust bottom margin for tighter spacing */
+        max-width: 700px;
     }
     .hanging-indent {
         text-indent: -1.5em; /* Pull the first line back */
         padding-left: 1.5em; /* Indent all lines except the first one */
-        max-width: 450px;
     }
     .social-icons {
     display: flex;
@@ -147,6 +162,47 @@
         margin-top: 75px;
         padding: 10px;
         text-align: left;
+    }
+    .box2 {
+        background-color: #e6e3e3;
+        width: 75%;
+        height: 300;
+        padding: 10px;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    /* TO-DO implement section below for thin/mobile view */
+    @media (max-width: 768px) {
+        .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        
+    }
+    .nav .logo {
+        font-size: 1.5em;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+    .nav .nav-toggle {
+        display: block;
+        padding: 10px;
+        align-self: flex-end;
+        margin-left: 20px;
+    }
+    .nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width:100%;
+        padding-left: 20px;
+        position: aboslute;
+        top: 100px;
+        background-color: black;
+        padding: 10px 0;
+    }
+    .nav .nav-links.active {
+        display: flex;
+    }
     }
 
     /* TO-DO implement section below for thin/mobile view */
@@ -278,9 +334,22 @@
 
     animate();
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    });
+</script>
 <body>
     <div class="nav">
         <h1 class="logo">ψ shwnmnl</h1>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
         <div class="nav-links">
             <a href="index.html">home</a>&emsp;
             <a href="resume.html">resume</a>&emsp;
