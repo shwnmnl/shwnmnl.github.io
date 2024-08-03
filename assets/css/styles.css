@@ -19,6 +19,7 @@ canvas {
 h1 {
     font-size: 3em;
     background: linear-gradient(0deg, #00eeff, #ff00ff);
+    /* background: #82B1E8; */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
