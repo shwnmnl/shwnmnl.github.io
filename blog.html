@@ -7,204 +7,13 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, web development">
     <meta name="author" content="Shawn Manuel">
     <title>ψ shwnmnl - blog</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/otherstyles.css">
 </head>
-<style>
-    body {
-        background-color: #e3e3df;
-        font-family: 'Kanit', sans-serif;
-        text-align: left;
-        margin: 0;
-        padding: 0;
-        margin-left: 0%;
-    }
-    .nav {
-            position: relative;
-            background-color: transparent;
-            color: #00a6ff;
-            padding: 0; /* Remove padding to fit the canvas perfectly */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            /* text-align: center; */
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            height: 100px; /* Set a fixed height for the navbar */
-            /* overflow: hidden; */
-    }
-    .nav h1.logo {
-        font-size: 2.5em;
-        background: linear-gradient(0deg, #00eeff, #ff00ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 700;
-        margin: 0;
-        line-height: 100px;
-        padding-left: 80px;
-        z-index: 10; /* Ensure logo appears on top of the canvas */
-        /* margin-left: 20px; /* Adjust as needed */
-        /* margin-bottom: 0; */ 
-    }
-    .nav .nav-links {
-        display: flex;
-        align-items: center;
-        padding-right: 20px;
-        z-index: 10;
-    }
-    .nav .nav-links a {
-        color: #46abee;
-        text-decoration: none;
-        margin: 0 15px;
-        line-height: 100px; /* Vertically center the links */
-        position: relative; /* Ensure links appear on top of the canvas */
-        /* z-index: 10; Ensure links appear on top of the canvas */
-    }
-    .nav-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1; /* Place canvas behind the links */
-    }
-    .nav .nav-toggle {
-        display: none; /* Hide the toggle button by default */
-        font-size: 1.5em;
-        background: none;
-        border: none;
-        color: #46abee;
-        cursor: pointer;
-        position: absolute;
-        z-index:10;
-        right: 20px;
-        top: 20px;
-        /* margin-right:20px; */
-    }
-    .main-content {
-        margin: 0 5%;
-        margin-top: 110px; /* Add margin to offset the fixed nav bar */
-    }
-    .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 1200px;
-        margin: 0 auto;
-        margin-top: 60px;
-        margin-left: 5%;
-        min-height: 100vh;
-    }
-    .left-column {
-            flex: 1;
-            max-width: 300px;
-            margin-right: 20px;
-            position: sticky;
-            top: 75px
-    }
-    .left-column img {
-        display: block;
-        width: 75%;
-        height: auto;
-        border-radius: 50%;
-        margin-bottom: 20px;
-        margin-top: 25%;
-    }
-    .right-column {
-        flex: 3;
-        margin-top: 75px;
-    }
-    h1 {
-        margin: 20px 0 10px; /* Adjust top and bottom margins for tighter spacing */
-    }
-    h2 {
-    margin: 15px 0px 5px; /* Adjust top and bottom margins for tighter spacing */
-    }
-    h2:first-of-type {
-        margin-top: 10px; /* Larger top margin for the first h2 */
-    }
-    h3 {
-        margin: 0px 0 0px; /* Adjust top and bottom margins for tighter spacing */
-    }
-    p {
-        margin: 0 0 5px; /* Adjust bottom margin for tighter spacing */
-        max-width: 700px;
-    }
-    .hanging-indent {
-        text-indent: -1.5em; /* Pull the first line back */
-        padding-left: 1.5em; /* Indent all lines except the first one */
-    }
-    .social-icons {
-    display: flex;
-    justify-content: left;
-    margin-top: 20px;
-    }
-
-    .social-icons a {
-        color: #333;
-        font-size: 2em; /* Change the size of the icons here */
-        margin: 0 5px;
-        transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-        color: #ff00ff;
-    }
-    .box {
-        background-color: #dddddd;
-        width: 450px;
-        height: 25px;
-        margin-top: 75px;
-        padding: 10px;
-        text-align: left;
-    }
-    .box2 {
-        background-color: #e6e3e3;
-        width: 75%;
-        height: 300;
-        padding: 10px;
-        text-align: left;
-        margin-bottom: 10px;
-    }
-    /* TO-DO implement section below for thin/mobile view */
-    @media (max-width: 768px) {
-        .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        
-    }
-    .nav .logo {
-        font-size: 1.5em;
-        padding-left: 20px;
-        margin-bottom: 10px;
-    }
-    .nav .nav-toggle {
-        display: block;
-        padding: 10px;
-        align-self: flex-end;
-        margin-left: 20px;
-    }
-    .nav .nav-links {
-        display: none;
-        flex-direction: column;
-        width:100%;
-        padding-left: 20px;
-        position: aboslute;
-        top: 100px;
-        background-color: black;
-        padding: 10px 0;
-    }
-    .nav .nav-links.active {
-        display: flex;
-    }
-    }
-</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="assets/js/navterrain.js"></script>
 <body>
@@ -221,20 +30,26 @@
             <a href="about.html">about</a>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>Coming soon, stay tuned.</p>
-    <br>
-    <br>
-    <div class="social-icons">
-        <a href="https://scholar.google.com/citations?hl=en&user=LxMWm1wAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-        <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
+    <div class="container">
+        <div class="left-column">
+            <img src="assets/images/myface.JPG" alt="My Face">
+            <h1>Shawn Manuel</h1>
+            <div class="social-icons">
+                <a href="https://scholar.google.com/citations?hl=en&user=LxMWm1wAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="right-column">
+            <h1>Blog</h1>
+            <h2><a href="https://autoarchivist.pythonanywhere.com">SCP AutoArchivist - Building my first full stack web app</a></h2>
+            <p>A python project that scrapes the SCP Foundation website for new articles and stores them in a database. The app is built with Flask, Google and OpenAI APIs, and PythonAnywhere.</p>
+            <h2>OpenProjection - A machine learning tutorial for NLP in psychology</h2>
+            <p>A tutorial on using text embeddings to predict psychopathology from verbal reports to ambiguous visual stimuli from the Thematic Apperception Test. </p>
+        </div>
     </div>
 </body>
+</html>
+

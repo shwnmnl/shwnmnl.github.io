@@ -138,12 +138,13 @@ p {
 }
 .box2 {
     background-color: #dcdada;
-    width: 75%;
+    width: 90%;
     height: 300;
     padding: 10px;
     text-align: left;
     margin-bottom: 10px;
 }
+
 
 
 @media (max-width: 768px) {
