@@ -8,6 +8,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    place-items: center;
 }
 canvas { 
     display: block; 
@@ -88,12 +90,48 @@ summary {
 .social-icons a:hover {
     color: #00eeff;
 }
-nav a {
-    color: #aeaaaa;
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 1.2em;
+.scroll-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-end;   /* Align to the bottom */
+    height: 100vh;           /* Full viewport height */
+    width: 100vw;            /* Full viewport width */
 }
-nav a:hover {
-    color: #00eeff;
+
+.scroll-text {
+    font-size: 3em;
+    color: #2ab6c0;
+    cursor: pointer;
+    bottom: 10%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    font-family: 'Kanit', sans-serif;
+    position: fixed;
+    left: 50%;
+    animation: alternate 1s infinite scroll;   
 }
+@keyframes scroll {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.fa-hat-wizard {
+    font-size: 3.5em;
+    color: #2ab6c0;
+    cursor: pointer;
+    bottom: 5%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    position: fixed;
+    left: 50%;
+    animation: alternate 1s infinite scroll;   
+}
+.outline-icon {
+    color: transparent;               /* Make the inside transparent */
+    -webkit-text-stroke: 2px #00eeff; /* Outline color */
+    text-stroke: 1px #00eeff;         /* Fallback for non-webkit browsers */
+}
+
