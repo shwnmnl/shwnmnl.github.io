@@ -42,10 +42,14 @@
           </span> -->
           
     </div>
+    <div id="line"></div> <!-- Line element -->
+    <div id="threejs-container"></div> <!-- Three.js container -->
+
     <script>
-        function scrollToResume() {
-            document.getElementById('resume-section').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+        // Wait for the page to fully load, then fade it in
+        window.addEventListener('load', function() {
+          document.body.style.opacity = 1; // Fade in the body content
+        });
+      </script>
 </body>
 </html>

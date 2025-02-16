@@ -1,4 +1,6 @@
 body {
+    opacity: 0;
+    transition: opacity 2s ease-in;
     background-color: black;
     font-family: 'Kanit', sans-serif;
     margin: 0;
@@ -77,7 +79,7 @@ summary {
     margin-top: 10px;
 }
 .social-icons {
-    margin-top: 15px;
+    margin-top: 5px;
     display: flex;
     justify-content: center;
 }
@@ -134,7 +136,6 @@ summary {
     -webkit-text-stroke: 2px #00eeff; /* Outline color */
     text-stroke: 1px #00eeff;         /* Fallback for non-webkit browsers */
 }
-
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -142,3 +143,58 @@ summary {
   'GRAD' 0,
   'opsz' 48;
 }
+
+/* Make a mobile friednly adaptations */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+        margin-top: 13%;
+    }
+    p {
+        font-size: 1.2em;
+    }
+    details {
+        font-size: 1em;
+    }
+    summary {
+        font-size: 1em;
+    }
+    .content {
+        padding: 1px;
+    }
+    .details-content {
+        font-size: 0.8em;
+    }
+    .social-icons a {
+        font-size: 1.4em;
+    }
+    .scroll-text {
+        font-size: 2em;
+    }
+    .fa-hat-wizard {
+        font-size: 2.5em;
+    }
+}
+
+
+
+#line {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 0; /* Start with zero height */
+    background-color: #9f079f;
+    transition: height 1s ease-in-out;
+    transform: translateX(-50%); /* Center the line horizontally */
+  }
+
+  #threejs-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease-in-out;
+  }

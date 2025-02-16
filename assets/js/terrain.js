@@ -1,3 +1,26 @@
+// // Line animation
+// window.onload = function() {
+//     const line = document.getElementById('line');
+//     const content = document.getElementById('content');
+//     const threejsContainer = document.getElementById('threejs-container');
+
+//     // Animate the line first
+//     line.style.height = '54vh';
+
+//     // After line animation (1s), reveal the logo and blurb
+//     setTimeout(function() {
+//       content.style.opacity = 1; // Fade in the content
+//     }, 1000);
+
+//     // After revealing the content (2s), start terrain and stars animation
+//     setTimeout(function() {
+//       line.style.display = 'none'; // Hide the line
+//       threejsContainer.style.opacity = 1; // Fade in the three.js scene
+//       initThreeJS(); // Start three.js animation
+//     }, 2000); // Adjust timing as needed
+//   };
+
+
 // Basic Three.js setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -51,16 +74,6 @@ function modifyVertices(geometry) {
     geometry.attributes.position.needsUpdate = true;
 }
 
-// function modifyVertices(geometry) {
-//     for (let i = 0; i < geometry.attributes.position.count; i++) {
-//         const vertex = new THREE.Vector3().fromBufferAttribute(geometry.attributes.position, i);
-//         const noiseValue = simplex.noise2D(vertex.x / 100, vertex.y / 100) * 10; // Adjust scale and amplitude as needed
-//         vertex.z = noiseValue;
-//         geometry.attributes.position.setXYZ(i, vertex.x, vertex.y, vertex.z);
-//     }
-//     geometry.attributes.position.needsUpdate = true;
-// }
-
 modifyVertices(geometry);
 modifyVertices(geometry2);
 
@@ -85,26 +98,6 @@ window.addEventListener('resize', () => {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 });
-
-//     function createStars() {
-//     const starGeometry = new THREE.BufferGeometry();
-//     const starMaterial = new THREE.PointsMaterial({ color: 0xffffff });
-
-//     const starCount = 1000;
-//     const starVertices = [];
-
-//     for (let i = 0; i < starCount; i++) {
-//         const x = Math.random() * 600 - 400; // Spread stars across width
-//         const y = Math.random() * 100 + 20;  // Position stars above the terrain
-//         const z = Math.random() * 400 - 200; // Spread stars across depth
-//         starVertices.push(x, y, z);
-//     }
-
-//     starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-//     const stars = new THREE.Points(starGeometry, starMaterial);
-//     scene.add(stars);
-// }
-// createStars();
 
 // Animation loop
 function animate() {
