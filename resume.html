@@ -45,7 +45,8 @@
             <h1>Resume</h1>
             <h2>Bio</h2>
             <p>I am a PhD student working with Vincent Taschereau-Dumouchel on bridging the gap between quantitative and qualitative approaches in cognitive neuroscience and computational psychiatry. During my master's, I worked on mapping out subjective experience using a combination of psychometrics, NLP and generative AI, with a focus on accelerating mental health care research. I now aim to develop innovative applications of AI to the study of brains and consciousness.</p>
-            <h2>Education</h2>
+            
+            <summary><h2>Education</h2></summary>
             <h3><b>Ph.D. Psychology</b></h3>
             <p>Cognitive and Computational Neuroscience specialization<br>Université de Montréal, Fall 2024</p>
             <h3><b>M.Sc. <i>Biomedical Data Science</i></b></h3>
@@ -53,8 +54,10 @@
             <h3><b>B.Sc. Psychology (Honors)</b></h3>
             <p>Université du Québec à Montréal, 2019 - 2022</p>
             <h2>Publications</h2>
+
             <!-- <h3>Preprints</h3>
             <p class="hanging-indent">1. <b>Manuel, S.,</b> Gagnon, J., Gosselin, F., Taschereau-Dumouchel, V. (2024). Towards a Latent Space Cartography of Subjective Experience in Mental Health. <i>PsyArXiv.</i> <a href ="https://doi.org/10.31234/osf.io/gb6nu">[Preprint]</a><br></p> -->
+
             <h3>Peer-reviewed articles</h3>
             <p class="hanging-indent">3. <b>Manuel, S.,</b> Gagnon, J., Gosselin, F., Taschereau-Dumouchel, V. (2025). Towards a Latent Space Cartography of Subjective Experience in Mental Health. <i>Psychiatry and Clinical Neurosciences.</i> <a href ="https://doi.org/10.1111/pcn.13798">[Paper]</a><br></p>
             <p class="hanging-indent">2. Taschereau-Dumouchel, V., Côté, M., <b>Manuel, S.,</b> Valevicius, D., Cushing, C.A., Cortese, A., Lau, H. (2024). Interaction Between the Prefrontal and Visual Cortices Supports Subjective Fear. <i>Philosophical Transactions of the Royal Society B: Biological Sciences.</i> <a href ="https://royalsocietypublishing.org/doi/abs/10.1098/rstb.2023.0245">[Paper]</a> <a href=https://www.biorxiv.org/content/10.1101/2023.10.23.562918v2>[Preprint]</a><br></p>
@@ -81,3 +84,172 @@
 </body>
 </html>
 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyberpunk Trail Only</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 1;
+    }
+
+    .flash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white;
+      opacity: 0;
+      z-index: 2;
+      transition: opacity 0.4s ease-out;
+      pointer-events: none;
+    }
+
+    .content {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white;
+      color: black;
+      opacity: 0;
+      z-index: 3;
+      text-align: center;
+      padding: 100px;
+      box-sizing: border-box;
+      transition: opacity 1s ease-in;
+    }
+
+    .content.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="flash" id="flash"></div>
+<div class="content" id="content">
+  <h1>Welcome to My Projects</h1>
+  <p>This is where I showcase my creative and technical work.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+
+<script>
+  let scene, camera, renderer;
+  let emitterPosition = new THREE.Vector3(40, 30, 0);
+  let targetPosition = new THREE.Vector3(0, 0, 0);
+  let trailParticles = [];
+  let triggered = false;
+  let hasExploded = false;
+  let startTime = null;
+  let hue = 180;
+
+  const flash = document.getElementById('flash');
+  const content = document.getElementById('content');
+
+  init();
+  animate();
+
+  function init() {
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 30;
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Triggers
+    window.addEventListener('click', triggerTransition);
+    window.addEventListener('scroll', triggerTransition);
+    setTimeout(triggerTransition, 8000);
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  }
+
+  function triggerTransition() {
+    if (triggered) return;
+    triggered = true;
+    startTime = performance.now();
+  }
+
+  function emitTrail() {
+    const geo = new THREE.SphereGeometry(0.25, 8, 8);
+
+    // Convert hue to color
+    const color = new THREE.Color(`hsl(${hue}, 100%, 60%)`);
+    hue = (hue + 2) % 360;
+
+    const mat = new THREE.MeshBasicMaterial({ color: color, transparent: true, opacity: 0.8 });
+
+    const particle = new THREE.Mesh(geo, mat);
+    const offset = () => (Math.random() - 0.5) * 1.5;
+
+    particle.position.set(
+      emitterPosition.x + offset(),
+      emitterPosition.y + offset(),
+      emitterPosition.z + offset()
+    );
+
+    scene.add(particle);
+    trailParticles.push({ mesh: particle, life: 1 });
+  }
+
+  function explode() {
+    if (hasExploded) return;
+    hasExploded = true;
+
+    flash.style.opacity = 1;
+    setTimeout(() => {
+      flash.style.opacity = 0;
+      content.classList.add('visible');
+    }, 400);
+  }
+
+  function animate(timestamp) {
+    requestAnimationFrame(animate);
+
+    if (triggered && startTime !== null) {
+      const t = Math.min((timestamp - startTime) / 3000, 1);
+      emitterPosition.lerpVectors(new THREE.Vector3(40, 30, 0), targetPosition, t);
+      emitTrail();
+
+      if (t >= 1) {
+        explode();
+        startTime = null;
+      }
+    }
+
+    for (let i = trailParticles.length - 1; i >= 0; i--) {
+      const p = trailParticles[i];
+      p.life -= 0.02;
+      p.mesh.material.opacity = p.life;
+      p.mesh.scale.setScalar(p.life + 0.5);
+      if (p.life <= 0) {
+        scene.remove(p.mesh);
+        trailParticles.splice(i, 1);
+      }
+    }
+
+    renderer.render(scene, camera);
+  }
+</script>
+
+</body>
+</html> -->

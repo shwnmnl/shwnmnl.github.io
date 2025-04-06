@@ -1,26 +1,3 @@
-// // Line animation
-// window.onload = function() {
-//     const line = document.getElementById('line');
-//     const content = document.getElementById('content');
-//     const threejsContainer = document.getElementById('threejs-container');
-
-//     // Animate the line first
-//     line.style.height = '54vh';
-
-//     // After line animation (1s), reveal the logo and blurb
-//     setTimeout(function() {
-//       content.style.opacity = 1; // Fade in the content
-//     }, 1000);
-
-//     // After revealing the content (2s), start terrain and stars animation
-//     setTimeout(function() {
-//       line.style.display = 'none'; // Hide the line
-//       threejsContainer.style.opacity = 1; // Fade in the three.js scene
-//       initThreeJS(); // Start three.js animation
-//     }, 2000); // Adjust timing as needed
-//   };
-
-
 // Basic Three.js setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);

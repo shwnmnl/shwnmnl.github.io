@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100vh;
+      background: #111;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      background: gray;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .sidebar nav a {
+      display: block;
+      margin: 10px 0;
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .sidebar nav a.active {
+      color: #0ff;
+      font-weight: bold;
+    }
+
+    /* Main content area */
+    .content {
+      margin-left: 220px;
+      padding: 40px;
+    }
+
+    section {
+      margin-bottom: 80px;
+      padding-top: 80px;
+      border-top: 1px solid #eee;
+    }
+
+    section h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="avatar"></div>
+    <div><strong>Shawn Manuel</strong></div>
+    <div style="font-size: 12px; color: #ccc;">ψ/AI PhD Student @ UdeM</div>
+    <nav>
+      <a href="#projects" id="link-projects">Projects</a>
+      <a href="#bio" id="link-bio">Bio</a>
+      <a href="#education" id="link-education">Education</a>
+      <a href="#publications" id="link-publications">Publications</a>
+      <a href="#presentations" id="link-presentations">Presentations</a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <section id="projects"><h2>Projects</h2><p>Three featured boxes go here...</p></section>
+    <section id="bio"><h2>Bio</h2><p>A short paragraph about you.</p></section>
+    <section id="education"><h2>Education</h2><p>Your academic background.</p></section>
+    <section id="publications"><h2>Publications</h2><p>List of papers or articles.</p></section>
+    <section id="presentations"><h2>Presentations</h2><p>Talks, posters, etc.</p></section>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const links = document.querySelectorAll(".sidebar nav a");
+
+    function updateActiveLink() {
+      let index = sections.length;
+
+      while (--index && window.scrollY + 120 < sections[index].offsetTop) {}
+
+      links.forEach(link => link.classList.remove("active"));
+      links[index].classList.add("active");
+    }
+
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink();
+  </script>
+
+</body>
+</html>
