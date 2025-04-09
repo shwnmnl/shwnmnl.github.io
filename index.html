@@ -24,9 +24,9 @@
         <!-- <img src="assets/images/latentspace.png" alt="Shawn Manuel" style="display: block; margin: 0 auto; width: 300px; height: 250px; border-radius: 50%; margin-top: 2em;"> -->
         <h1>ψ shwnmnl</h1>
         <p>Shawn Manuel<br>
-            Ph.D. student in Psych / AI exploring qualia space computationally.
-            <br><a href="resume.html">[resume]</a>&emsp;  
-            <a href="projects.html">[projects]</a>
+            PhD student in Psych / AI exploring qualia space computationally.
+            <!-- <br><a href="resume.html">[resume]</a>&emsp;  
+            <a href="projects.html">[projects]</a> -->
         </p>
         <div class="social-icons">
             <a href="https://scholar.google.com/citations?hl=en&user=LxMWm1wAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
@@ -35,21 +35,17 @@
             <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
-        
-        <!-- <i class="fa-solid fa-hat-wizard outline-icon"></i> -->
-        <!-- <span class="material-symbols-outlined">
-            keyboard_arrow_down
-          </span> -->
-          
     </div>
     <div id="line"></div> <!-- Line element -->
     <div id="threejs-container"></div> <!-- Three.js container -->
-
+    <div id="comet-trail"></div>
+    <div class="flash" id="flash"></div>
     <script>
         // Wait for the page to fully load, then fade it in
         window.addEventListener('load', function() {
           document.body.style.opacity = 1; // Fade in the body content
+          document.getElementById('threejs-container').style.opacity = 1;
         });
-      </script>
+    </script>
 </body>
 </html>

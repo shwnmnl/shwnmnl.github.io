@@ -44,7 +44,7 @@ p {
     font-weight: 300;
     margin-left: 5%;
     margin-right: 5%;
-    margin-top: 0px;
+    /* margin-top: 0px; */
 }
 details {
     margin: 5px 0;
@@ -198,4 +198,26 @@ summary {
     height: 100vh;
     opacity: 0; /* Initially hidden */
     transition: opacity 1s ease-in-out;
+    z-index: -1;
+  }
+
+
+  .flash {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white;
+    opacity: 0;
+    z-index: 1000; /* Make sure it's above all */
+    transition: opacity 0.4s ease-out;
+    pointer-events: none;
+  }
+  
+  #comet-trail {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; /* Below main content */
+    pointer-events: none; /* Ignore pointer events */
   }
