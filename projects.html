@@ -353,6 +353,28 @@
     input:checked + .slider:before {
       transform: translateX(24px);
     }
+
+    .substack-link {
+      display: inline-block;
+      width: 0.9em;
+      height: 1.3em;
+      background-color: var(--text-light);
+      -webkit-mask: url('/assets/icons/substack.svg') no-repeat center;
+      -webkit-mask-size: contain;
+      mask: url('/assets/icons/substack.svg') no-repeat center;
+      mask-size: contain;
+      transition: background-color var(--transition), transform var(--transition);
+      position: relative;
+      top: 0.15em; /* tweak this to fine-tune alignment */
+
+    }
+
+    .substack-link:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+
+
   </style>
 </head>
 <body>
@@ -369,6 +391,11 @@
       <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
       <a href="https://twitter.com/shwnmnl" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       <a href="https://instagram.com/shwnmnl" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://shiftingontologies.substack.com/" target="_blank" aria-label="Substack" class="social-icon substack-link"></a>
+
+
+
+
     </div>
     <nav>
       <a href="#bio" id="link-bio">Bio</a>
@@ -406,7 +433,7 @@
       <h2>Projects</h2>
       
       <div class="project-card">
-        <h3><b>Research:</b> <a href="https://drive.google.com/file/d/1jabvAs_9MWGWNBjstoHzAnBslkJYxqWH/view?usp=drive_link">From Deep Learning to Depth Psychology: A Review and Roadmap for Representation Learning Across the Mind Sciences</a></h3>
+        <h3><b>Research:</b> <a href="https://doi.org/10.31234/osf.io/pgfyw_v1">From Deep Learning to Depth Psychology: A Review of Representation Learning Across the Mind Sciences</a></h3>
         <p>TL;DR: To avoid over-hyping AI, we should be careful about what is meant by better/more "efficient" representation learning.</p>
         <p>Figures can be (mostly) reproduced from the <a href="https://github.com/shwnmnl/representations">repo</a>, and an interactive version of the timeline can be explored on the <a href="https://shwnmnl.github.io/representations/">companion web-app</a>.</p>
         <video autoplay loop muted playsinline onplay="this.playbackRate=0.7;" style="margin: 0 auto; max-width:100%; height: auto; clip-path: inset(0 10px 0 0);">
@@ -472,10 +499,13 @@
 
     <section id="publications" class="publication-section">
       <h2>Publications</h2>
+      <h3>Preprints</h3>
+      <p class="hanging-indent">1. <b>Manuel, S.,</b> Taschereau-Dumouchel, V. (2025). From Deep Learning to Depth Psychology: A Review of Representation Learning Across the Mind Sciences. <i>PsyArXiv.</i> <a href ="https://doi.org/10.31234/osf.io/pgfyw_v1">[Preprint]</a></p>
+
       <h3>Peer-reviewed articles</h3>
       <p class="hanging-indent">3. <b>Manuel, S.,</b> Gagnon, J., Gosselin, F., Taschereau-Dumouchel, V. (2025). Towards a Latent Space Cartography of Subjective Experience in Mental Health. <i>Psychiatry and Clinical Neurosciences.</i> <a href ="https://doi.org/10.1111/pcn.13798">[Paper]</a></p>
       <p class="hanging-indent">2. Taschereau-Dumouchel, V., Côté, M., <b>Manuel, S.,</b> Valevicius, D., Cushing, C.A., Cortese, A., Lau, H. (2024). Interaction Between the Prefrontal and Visual Cortices Supports Subjective Fear. <i>Philosophical Transactions of the Royal Society B: Biological Sciences.</i> <a href ="https://royalsocietypublishing.org/doi/abs/10.1098/rstb.2023.0245">[Paper]</a> <a href=https://www.biorxiv.org/content/10.1101/2023.10.23.562918v2>[Preprint]</a></p>
-      <p class="hanging-indent">1. Berman, T., Cushing, C.A., <b>Manuel, S.</b>, Vachon-Presseau, É., Cortese, A., Kawato, M., Woo, C.W., Wager,T., Lau, H., Roy, M., & Taschereau-Dumouchel, V. (Accepted). Modulating Subjective Pain Perception with Decoded MNI-space Neurofeedback. <i>Philosophical Transactions of the Royal Society B: Biological Sciences.</i> <a href=https://www.biorxiv.org/content/10.1101/2023.10.25.563972v1>[Preprint]</a></p>
+      <p class="hanging-indent">1. Berman, T., Cushing, C.A., <b>Manuel, S.</b>, Vachon-Presseau, É., Cortese, A., Kawato, M., Woo, C.W., Wager,T., Lau, H., Roy, M., & Taschereau-Dumouchel, V. (2024). Modulating Subjective Pain Perception with Decoded MNI-space Neurofeedback. <i>Philosophical Transactions of the Royal Society B: Biological Sciences.</i> <a href=https://www.biorxiv.org/content/10.1101/2023.10.25.563972v1>[Preprint]</a></p>
       
       <h3>Science communication articles</h3>
       <p class="hanging-indent">2. <b>Manuel, S.,</b> (2021). « Opération Mind Control : Un historique du consentement en recherche », <i>Journal étudiant le Psy-Curieux</i>, <a href=https://psycurieux.ca/2021/04/07/mind-control/ >https://psycurieux.ca/2021/04/07/mind-control/</a></p>
@@ -489,6 +519,7 @@
       <p class="hanging-indent">1. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau-Dumouchel, V. (May 26-28, 2023). Quantifier les représentations mentales à l'aide du traitement du langage naturel. <a href=https://www.sqrp.ca><i>45e congrès annuel de la Société Québécoise pour la Recherche en Psychologie</i></a>, Sherbrooke, QC, Canada. <a href=https://docs.google.com/presentation/d/1IPBvzq6rG-53ZFOCx9UkpJLS_40Hqnwal0owA-RGv1Q/edit?usp=sharing>[Slides]</a></p>
       
       <h3>Poster presentations</h3>
+      <p class="hanging-indent">9. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau-Dumouchel, V. (July 6-9 2025). Comparing Verbal Report Elicitation Methods for Psychiatric Symptom Prediction. <a href=https://mila.quebec/en/event/workshop-nlp-in-the-era-of-generative-ai-cognitive-sciences-and-societal-transformation><i>28th Annual Meeting of the Association for the Scientific Study of Consciousness</i></a>, Heraklion, Crete, Greece. <a href=https://www.canva.com/design/DAGqjKIV-Pc/qTsNxdAa2Iuq_Q4EVd7t0g/edit?utm_content=DAGqjKIV-Pc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton>[Poster]</a></p>
       <p class="hanging-indent">8. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau-Dumouchel, V. (October 1-3 2024). Towards a Latent Space Cartography of Individual Differences in Subjective Experience Using Large Language Models. <a href=https://mila.quebec/en/event/workshop-nlp-in-the-era-of-generative-ai-cognitive-sciences-and-societal-transformation><i>Mila Workshop: NLP in the era of generative AI, cognitive sciences, and societal transformation</i></a>, Montréal, QC, Canada. <a href=https://www.canva.com/design/DAGL-pB9Du0/onDrnX12bJsdev293X97cw/view?utm_content=DAGL-pB9Du0&utm_campaign=designshare&utm_medium=link&utm_source=editor>[Poster]</a></p>
       <p class="hanging-indent">7. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau-Dumouchel, V. (August 6-9 2024). Towards a Latent Space Cartography of Individual Differences in Subjective Experience Using Large Language Models. <a href=https://2024.ccneuro.org><i>Cognitive Computational Neuroscience</i></a>, Boston, MA, United-States. <a href=https://www.canva.com/design/DAGL-pB9Du0/onDrnX12bJsdev293X97cw/view?utm_content=DAGL-pB9Du0&utm_campaign=designshare&utm_medium=link&utm_source=editor>[Poster]</a></p>
       <p class="hanging-indent">6. Taschereau-Dumouchel, V., Côté, M., <b>Manuel. S.</b>, Valevicius, D., & Lau, H. (May 17-22 2024). Information transmission between the ventral visual stream and the prefrontal cortex supports the subjective experience of fear. <a href=https://www.visionsciences.org><i>Vision Sciences Society</i></a>, Naples, FL, United-States.</p>
