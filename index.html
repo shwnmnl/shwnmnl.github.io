@@ -1,51 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PhD student in Psych / AI exploring qualia space computationally.">
-    <meta name="keywords" content="HTML, CSS, JavaScript, web development">
-    <meta name="author" content="Shawn Manuel">
-    <title>ψ shwnmnl</title>
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PhD student in Psych / AI exploring qualia space computationally.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, web development">
+  <meta name="author" content="Shawn Manuel">
+  <title>ψ shwnmnl</title>
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
-<script src="assets/js/terrain.js" defer></script>
 <body>
-    <div class="content">
-        <!-- <img src="assets/images/latentspace.png" alt="Shawn Manuel" style="display: block; margin: 0 auto; width: 300px; height: 250px; border-radius: 50%; margin-top: 2em;"> -->
-        <h1>ψ shwnmnl</h1>
-        <p>Shawn Manuel<br>
-            PhD student in Psych / AI exploring qualia space computationally.
-            <!-- <br><a href="resume.html">[resume]</a>&emsp;  
-            <a href="projects.html">[projects]</a> -->
+  <!-- Background -->
+  <div id="threejs-container"></div>
+
+  <div class="site-wrapper">
+    <!-- Hero at top -->
+    <header class="hero">
+      <h1 class="hero-title">ψ shwnmnl</h1>
+      <p class="hero-subtitle">
+        Shawn Manuel<br>
+        PhD student in Psych / AI exploring qualia space computationally.
+      </p>
+      <div class="social-icons">
+        <a href="https://scholar.google.com/citations?hl=en&user=LxMWm1wAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://github.com/shwnmnl" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/shwnmnl" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/shwnmnl" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://shiftingontologies.substack.com/" target="_blank" aria-label="Substack" class="social-icon substack-link"></a>
+      </div>
+
+      <div class="scroll-cue">
+        <!-- <span>scroll</span> -->
+        <span class="scroll-cue-icon"><i class="fas fa-chevron-down"></i></span>
+      </div>
+    </header>
+
+    <!-- Main layout: sidebar + content -->
+    <main class="main-layout">
+      <aside class="sidebar">
+        <h1 class="logo">ψ shwnmnl</h1>
+        <div class="avatar">
+          <img src="assets/images/myface_dithered.JPG" alt="My Face">
+        </div>
+        <h1 class="name">Shawn Manuel</h1>
+        <p class="tagline">
+          ψ / AI PhD Student<br>
+          shawn.manuel@umontreal.ca
         </p>
         <div class="social-icons">
-            <a href="https://scholar.google.com/citations?hl=en&user=LxMWm1wAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://scholar.google.com/citations?hl=en&user=LxMWm1wAAAAJ" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://github.com/shwnmnl" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/shwnmnl" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/shwnmnl" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://shiftingontologies.substack.com/" target="_blank" aria-label="Substack" class="social-icon substack-link"></a>
         </div>
-    </div>
-    <div id="line"></div> 
-    <div id="threejs-container"></div> 
-    <div id="comet-trail"></div>
-    <div class="flash" id="flash"></div>
-    <script>
-        // Wait for the page to fully load, then fade it in
-        window.addEventListener('load', function() {
-          document.body.style.opacity = 1; // Fade in the body content
-          document.getElementById('threejs-container').style.opacity = 1;
+        <nav>
+          <a href="#bio" id="link-bio">Bio</a>
+          <a href="#education" id="link-education">Education</a>
+          <a href="#experience" id="link-experience">Experience</a>
+          <a href="#research">Research</a>
+          <a href="#projects" id="link-projects">Projects</a>
+        </nav>
+      </aside>
+
+      <div class="content-panel">
+        <div class="theme-switch-wrapper">
+          <!-- <label class="theme-switch" for="checkbox"> -->
+            <!-- <input type="checkbox" id="checkbox"> -->
+            <!-- <div class="slider"></div> -->
+          <!-- </label> -->
+        </div>
+
+        <!-- Bio -->
+        <section id="bio">
+          <h2>Bio</h2>
+          <p>I am a PhD student working on bridging the gap between quantitative and qualitative approaches in cognitive neuroscience and computational psychiatry. 
+            During my master's, I worked on mapping out subjective experience using a combination of psychometrics, NLP and generative AI, with a focus on accelerating mental health care research.
+          </p>
+          
+          <p>In my free time, I'm a hobbyist hacker and campfire guitar scratcher who enjoys eldritch horror and sci fi fantasy. I'm also a firm believer in Open Source Science, science communication and scientific literacy, and I try to incorporate these values into my work, such as through <a href="https://myxiv.com">myXiv</a>.</p>
+          
+          <p>I <a href="https://substack.com/home/post/p-161066308"><strike>don't have a substack</strike></a>, where I write about my thoughts on various subjects, like <a href="https://open.substack.com/pub/shiftingontologies/p/my-approach-to-prompt-engineering?r=5e62sq&utm_campaign=post&utm_medium=web&showWelcomeOnShare=false">my approach to prompt engineering</a>.</p>
+          
+          <p>This website is my first and ongoing attempt at web development (vanilla HTML CSS JS with a bit of Three js), and I plan to use it as a portfolio for both my research and personal projects.</p>
+        </section>
+
+        <!-- Education -->
+        <section id="education">
+        <h2>Education</h2>
+
+        <details class="education-item">
+            <summary>
+            <div class="education-summary-main">
+                <span class="education-degree"><b>Ph.D. Psychology</b></span>
+                <span class="education-meta">Université de Montréal · Cognitive and Computational Neuroscience · Fall 2024</span>
+            </div>
+            <span class="education-toggle-icon">+</span>
+            </summary>
+            <div class="education-details">
+            <p><b>Research focus: </b> Metacognition, anxiety disorders and subjective experience.</p>
+            <p><b>Methods: </b>Psychophysics, signal detection theory, psychometrics, computational factor modeling, NLP, machine learning.</p>
+            </div>
+        </details>
+
+        <details class="education-item">
+            <summary>
+            <div class="education-summary-main">
+                <span class="education-degree"><b>M.Sc. Biomedical Data Science</b></span>
+                <span class="education-meta">Université de Montréal · Clinical Sciences, Computational Medicine · 2022 to 2024</span>
+            </div>
+            <span class="education-toggle-icon">+</span>
+            </summary>
+            <div class="education-details">
+            <p><b>Thesis:</b> <i>Quantifying interindividual differences in subjective experience using artificial intelligence for the prediction of psychiatric symptoms</i></p>
+            <p><b>Methods:</b> Psychometrics, computational factor modeling, NLP, machine learning.</p>
+            </div>
+        </details>
+
+        <details class="education-item">
+            <summary>
+            <div class="education-summary-main">
+                <span class="education-degree"><b>B.Sc. Psychology (Honors)</b></span>
+                <span class="education-meta">Université du Québec à Montréal · 2019 to 2022</span>
+            </div>
+            <span class="education-toggle-icon">+</span>
+            </summary>
+            <div class="education-details">
+            <p><b>Honors work: </b><i>The influence of interoception on the distribution of concrete and abstract words in the latent structure of dictionaries.</i></p>
+            <p><b>Interests:</b> Cognitive neuroscience, psycholinguistics, open science.</p>
+            </div>
+        </details>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+        <h2>Experience</h2>
+
+        <article class="experience-item research">
+            <header class="experience-header">
+            <div>
+                <h3 class="experience-role">Visiting Researcher</h3>
+                <p class="experience-place">Systems and Intervention Neuroscience Lab · Sungkyukwan University - IBS Center for Neuroscience Imaging Research</p>
+            </div>
+            <p class="experience-dates">2025</p>
+            </header>
+
+            <div class="experience-tags">
+            <span>Artificial intelligence</span>
+            <span>Machine learning</span>
+            <span>fMRI data analysis</span>
+            </div>
+
+            <ul class="experience-points">
+            <li>Project on brain-computer interfaces using fMRI and generative models supervised by Professor Hakwan Lau.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item research">
+            <header class="experience-header">
+            <div>
+                <h3 class="experience-role">Neuropsychological Assessment Assistant</h3>
+                <p class="experience-place">ABCD Lab · McGill University Health Centre</p>
+            </div>
+            <p class="experience-dates">2024 to present</p>
+            </header>
+
+            <div class="experience-tags">
+            <span>Neuropsychological testing</span>
+            <span>Cognitive assessment</span>
+            </div>
+
+            <ul class="experience-points">
+            <li>Administered and scored neuropsychological tests (e.g., WISC-V, D-KEFS) for a longitudinal study on neonatal encephalopathy, contributing critical data and collaborating with an interdisciplinary team, supervised by Professor Marie Brossard-Racine.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item professional">
+            <header class="experience-header">
+            <div>
+                <h3 class="experience-role">Behavioral Health Technician</h3>
+                <p class="experience-place">Clinique ABA</p>
+            </div>
+            <p class="experience-dates">2021 to 2025</p>
+            </header>
+
+            <div class="experience-tags">
+            <span>Psychoeducation</span>
+            <span>Behavioral health</span>
+            <span>Applied behavioral analysis</span>
+            </div>
+
+            <ul class="experience-points">
+            <li>Implemented ABA techniques to support ASD patients with diverse needs, tracked progress through parent consultations, and fostered skill development in collaborative environments, supervised by Dr. Sylvie Bernard.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item professional">
+            <header class="experience-header">
+            <div>
+                <h3 class="experience-role">AI Data Trainer</h3>
+                <p class="experience-place">Cohere</p>
+            </div>
+            <p class="experience-dates">2025</p>
+            </header>
+
+            <div class="experience-tags">
+            <span>Data annotation</span>
+            <span>Translation</span>
+            </div>
+
+            <ul class="experience-points">
+            <li>Audited, labeled, ranked and corrected annotator and machine learning data and recommended optimization opportunities while providing feedback to cross-functional team members.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item professional">
+            <header class="experience-header">
+            <div>
+                <h3 class="experience-role">Teaching Assistant</h3>
+                <p class="experience-place">PST3100 Neurosciences, cognition and mental health · Université de Montréal</p>
+            </div>
+            <p class="experience-dates">2024</p>
+            </header>
+
+            <div class="experience-tags">
+            <span>Grading</span>
+            <span>Constructive Feedback</span>
+            </div>
+
+            <ul class="experience-points">
+            <li>Graded midterm and final exams, ensuring rigorous evaluation and providing constructive feedback to support student success.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item research">
+            <header class="experience-header">
+            <div>
+                <h3 class="experience-role">Research Assistant</h3>
+                <p class="experience-place">Division de néphrologie · Centre de recherche de l'Hôpital Maisonneuve-Rosemont</p>
+            </div>
+            <p class="experience-dates">2020-2022</p>
+            </header>
+
+            <div class="experience-tags">
+            <span>Data collection</span>
+            <span>REDCap</span>
+            </div>
+
+            <ul class="experience-points">
+            <li>Collected and managed clinical data for studies on mental health in hemodialysis patients, created and maintained databases, and prepared research protocols and ethics submissions, supervised by Dr. Annie-Claire nadeau-Fredette.</li>
+            </ul>
+        </article>
+
+        <!-- Add more <article class="experience-item"> blocks as needed -->
+        </section>
+
+
+        <!-- Research -->
+        <section id="research">
+          <h2>Publications</h2>
+          <h3>Preprints</h3>
+          <p class="hanging-indent">1. <b>Manuel, S.,</b> Taschereau Dumouchel, V. (2025). From Deep Learning to Depth Psychology: A Review of Representation Learning Across the Mind Sciences. <i>PsyArXiv.</i> <a href="https://doi.org/10.31234/osf.io/pgfyw_v1">[Preprint]</a></p>
+
+          <h3>Peer reviewed articles</h3>
+          <p class="hanging-indent">3. <b>Manuel, S.,</b> Gagnon, J., Gosselin, F., Taschereau Dumouchel, V. (2025). Towards a Latent Space Cartography of Subjective Experience in Mental Health. <i>Psychiatry and Clinical Neurosciences.</i> <a href="https://doi.org/10.1111/pcn.13798">[Paper]</a></p>
+          <p class="hanging-indent">2. Taschereau Dumouchel, V., Côté, M., <b>Manuel, S.,</b> Valevicius, D., Cushing, C. A., Cortese, A., Lau, H. (2024). Interaction Between the Prefrontal and Visual Cortices Supports Subjective Fear. <i>Philosophical Transactions of the Royal Society B: Biological Sciences.</i> <a href="https://royalsocietypublishing.org/doi/abs/10.1098/rstb.2023.0245">[Paper]</a> <a href="https://www.biorxiv.org/content/10.1101/2023.10.23.562918v2">[Preprint]</a></p>
+          <p class="hanging-indent">1. Berman, T., Cushing, C. A., <b>Manuel, S.</b>, Vachon Presseau, É., Cortese, A., Kawato, M., Woo, C. W., Wager, T., Lau, H., Roy, M., and Taschereau Dumouchel, V. (2024). Modulating Subjective Pain Perception with Decoded MNI space Neurofeedback. <i>Philosophical Transactions of the Royal Society B: Biological Sciences.</i> <a href="https://www.biorxiv.org/content/10.1101/2023.10.25.563972v1">[Preprint]</a></p>
+          
+          <h3>Science communication articles</h3>
+          <p class="hanging-indent">2. <b>Manuel, S.,</b> (2021). <a href="https://psycurieux.ca/2021/04/07/mind-control/">Opération Mind Control : Un historique du consentement en recherche</a>, <i>Journal étudiant le Psy Curieux.</i></p>
+          <p class="hanging-indent">1. <b>Manuel, S.,</b> (2021). <a href="https://psycurieux.ca/2021/02/22/folie-et-creativite/">La folie donne-t-elle naissance à la créativité?</a>, <i>Journal étudiant Le Psy Curieux</i>.</p>
+        
+          <h2>Presentations</h2>
+          <h3>Oral presentations</h3>
+          <p class="hanging-indent">2. <b>Manuel, S.</b>, Gosselin, F., Gagnon, J., Taschereau Dumouchel, V. (May 24 26, 2024). Cartographier les différences individuelles dans l'expérience subjective avec l'IA pour la prédiction des symptômes psychiatriques. <a href="https://www.sqrp.ca"><i>46e congrès annuel de la Société Québécoise pour la Recherche en Psychologie</i></a>, Drummondville, QC, Canada. <a href="https://www.canva.com/design/DAGGJBgtppE/Q-dYsmMCy9BkMN-qGeIPIQ/view?utm_content=DAGGJBgtppE&utm_campaign=designshare&utm_medium=link&utm_source=editor">[Slides]</a></p>
+          <p class="hanging-indent">1. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau Dumouchel, V. (May 26 28, 2023). Quantifier les représentations mentales à l'aide du traitement du langage naturel. <a href="https://www.sqrp.ca"><i>45e congrès annuel de la Société Québécoise pour la Recherche en Psychologie</i></a>, Sherbrooke, QC, Canada. <a href="https://docs.google.com/presentation/d/1IPBvzq6rG-53ZFOCx9UkpJLS_40Hqnwal0owA-RGv1Q/edit?usp=sharing">[Slides]</a></p>
+          
+          <h3>Poster presentations</h3>
+          <p class="hanging-indent">9. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau Dumouchel, V. (July 6 9 2025). Comparing Verbal Report Elicitation Methods for Psychiatric Symptom Prediction. <a href="https://mila.quebec/en/event/workshop-nlp-in-the-era-of-generative-ai-cognitive-sciences-and-societal-transformation"><i>28th Annual Meeting of the Association for the Scientific Study of Consciousness</i></a>, Heraklion, Crete, Greece. <a href="https://www.canva.com/design/DAGqjKIV-Pc/qTsNxdAa2Iuq_Q4EVd7t0g/edit?utm_content=DAGqjKIV-Pc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">[Poster]</a></p>
+          <p class="hanging-indent">8. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau Dumouchel, V. (October 1 3 2024). Towards a Latent Space Cartography of Individual Differences in Subjective Experience Using Large Language Models. <a href="https://mila.quebec/en/event/workshop-nlp-in-the-era-of-generative-ai-cognitive-sciences-and-societal-transformation"><i>Mila Workshop: NLP in the era of generative AI, cognitive sciences, and societal transformation</i></a>, Montréal, QC, Canada. <a href="https://www.canva.com/design/DAGL-pB9Du0/onDrnX12bJsdev293X97cw/view?utm_content=DAGL-pB9Du0&utm_campaign=designshare&utm_medium=link&utm_source=editor">[Poster]</a></p>
+          <p class="hanging-indent">7. <b>Manuel, S.,</b> Gosselin, F., Gagnon, J., Taschereau Dumouchel, V. (August 6 9 2024). Towards a Latent Space Cartography of Individual Differences in Subjective Experience Using Large Language Models. <a href="https://2024.ccneuro.org"><i>Cognitive Computational Neuroscience</i></a>, Boston, MA, United States. <a href="https://www.canva.com/design/DAGL-pB9Du0/onDrnX12bJsdev293X97cw/view?utm_content=DAGL-pB9Du0&utm_campaign=designshare&utm_medium=link&utm_source=editor">[Poster]</a></p>
+          <p class="hanging-indent">6. Taschereau Dumouchel, V., Côté, M., <b>Manuel. S.</b>, Valevicius, D., and Lau, H. (May 17 22 2024). Information transmission between the ventral visual stream and the prefrontal cortex supports the subjective experience of fear. <a href="https://www.visionsciences.org"><i>Vision Sciences Society</i></a>, Naples, FL, United States.</p>
+          <p class="hanging-indent">5. Taschereau Dumouchel, V., Côté, M., <b>Manuel. S.</b>, Valevicius, D., and Lau, H. (April 23 26 2024). Information transmission between the ventral visual stream and the prefrontal cortex supports the subjective experience of fear. <a href="https://socialaffectiveneuro.org"><i>Social and Affective Neuroscience Society</i></a>, Toronto, ON, Canada.</p>
+          <p class="hanging-indent">4. <b>Manuel, S.</b>, Gosselin, F., Gagnon, J., Taschereau Dumouchel, V. (July 6 8 2023). Quantifying High Level Representations Using Verbal Reports and Natural Language Processing. <a href="https://www.cpconf.org/home-1"><i>Computational Psychiatry Conference</i></a>, Dublin, Ireland. <a href="https://www.canva.com/design/DAFnrCisOxw/RbXvdTtoZC-32TiJE8v0Wg/view?utm_content=DAFnrCisOxw&utm_campaign=designshare&utm_medium=link&utm_source=editor">[Poster]</a></p>
+          <p class="hanging-indent">3. <b>Manuel, S.</b>, Gosselin, F., Gagnon, J., Taschereau Dumouchel, V. (July 17 21 2023). Quantifying High Level Representations Using Verbal Reports and Natural Language Processing. <a href="https://www.issid.org"><i>International Society for the Study of Individual Differences</i></a>, Belfast, Northern Ireland. <a href="https://www.canva.com/design/DAFnrCisOxw/RbXvdTtoZC-32TiJE8v0Wg/view?utm_content=DAFnrCisOxw&utm_campaign=designshare&utm_medium=link&utm_source=editor">[Poster]</a></p>
+          <p class="hanging-indent">2. <b>Manuel, S.</b> (20 22 May 2021). L'influence de l'intéroception dans l'ancrage des concepts abstraits et concrets : une approche psycholinguistique. <a href="https://www.sqrp.ca"><i>44e congrès annuel de la Société Québécoise pour la Recherche en Psychologie</i></a>, Mont Tremblant, QC, Canada.</p>
+          <p class="hanging-indent">1. <b>Manuel, S.</b>, (21 November 2021). Qu'est ce qu'un mot concret versus un mot abstrait ? <a href="https://neuroqam.uqam.ca"><i>Journée scientifique du Centre de recherche en neurosciences cognitives de l'Université du Québec à Montréal</i></a>, Montréal, QC, Canada. <b>[Best poster presentation award]</b></p>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+          <h2>Projects</h2>
+
+          <div class="project-card">
+            <h3><b>Research:</b> <a href="https://doi.org/10.31234/osf.io/pgfyw_v1">From Deep Learning to Depth Psychology: A Review of Representation Learning Across the Mind Sciences</a></h3>
+            <p>TL;DR: To avoid over hyping AI, we should be careful about what is meant by better or more efficient representation learning.</p>
+            <p>Figures can be mostly reproduced from the <a href="https://github.com/shwnmnl/representations">repo</a>, and an interactive version of the timeline can be explored on the <a href="https://shwnmnl.github.io/representations/">companion web app</a>.</p>
+            <video autoplay loop muted playsinline onplay="this.playbackRate=0.7;" style="margin: 0 auto; max-width:100%; height: auto; clip-path: inset(0 10px 0 0);">
+              <source src="assets/videos/reps.mov" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="project-card">
+            <h3><b>Research:</b> <a href="https://shwnmnl.github.io/neurofear/intro.html">The Many Faces of Fear: Univariate, Predictive and Representational Perspectives on Fearful Neuroimaging</a></h3>
+            <p>TL;DR: Neural data analysis project from <a href="https://school-brainhack.github.io/">Brainhack School 2025</a> comparing GLM, ML and RSA approaches for fMRI.</p>
+            <p>Code for this project is available <a href="https://github.com/brainhack-school2025/manuel_project">here</a>.</p>
+            <img src="assets/images/brainhack.png" alt="Brainhack School 2025 Project">
+          </div>
+
+          <div class="project-card">
+            <h3><b>Research:</b> <a href="https://github.com/shwnmnl/DeepProjection">Towards a Latent Space Cartography of Subjective Experience in Mental Health</a></h3>
+            <p><strong>Now published in <a href="https://doi.org/10.1111/pcn.13798"><i>Psychiatry and Clinical Neurosciences</i></a></strong>.</p>
+            <p>TL;DR: Master's project linking individual differences in verbal reports of subjective experience to transdiagnostic psychiatric symptom clusters.</p>
+            <p>Project data and code can be accessed on <a href="https://github.com/shwnmnl/DeepProjection">Github</a>, and explored on the <a href="https://deepprojection.pythonanywhere.com/">companion web app</a>.</p>
+            <video autoplay loop muted playsinline onplay="this.playbackRate=0.7;" style="margin: 0 auto; max-width:100%; height: auto; clip-path: inset(0 10px 0 0);">
+              <source src="assets/videos/DeepProj.mov" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="project-card">
+            <h3><b>Personal:</b> <a href="https://myxiv.com">myXiv</a></h3>
+            <p>TL;DR: BYOK paper summarizer and podcast generator that accounts for your desired tone and level of complexity, as well as your areas of expertise and blindspots.</p>
+            <p><i>Bring your own OpenAI API key.</i></p>
+            <video autoplay loop muted playsinline onplay="this.playbackRate=0.7;" style="margin: 0 auto; max-width:100%; height: auto; clip-path: inset(0 10px 0 0);">
+              <source src="assets/videos/myxiv.mov" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="project-card">
+            <h3><b>Personal:</b> <a href="https://autoarchivist.pythonanywhere.com">SCP AutoArchivist</a></h3>
+            <p>TL;DR: An email subscription service that sends a random SCP item from the SCP Foundation wiki daily, as well as a <a href="https://autoarchivist.pythonanywhere.com">web app</a> to browse random items and create SCP items with generative models.</p>
+            <video autoplay loop muted playsinline onplay="this.playbackRate=0.7;" style="margin: 0 auto; max-width:100%; height: auto; clip-path: inset(0 10px 0 0);">
+              <source src="assets/videos/AutoArchivist.mov" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+            
+          <div class="project-card">
+            <h3><b>Personal:</b> <a href="https://github.com/shwnmnl/OpenProjection">OpenProjection</a></h3>
+            <p>TL;DR: NLP tutorial in Python for psychological data.</p>
+            <img src="assets/images/OpenProjections.png" alt="OpenProjection">
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.min.js"></script>
+  <script src="assets/js/terrain.js"></script>
+
+  <script>
+    // Fade in body and background once loaded
+    window.addEventListener('load', function () {
+      document.body.style.opacity = 1;
+      const container = document.getElementById('threejs-container');
+      if (container) container.style.opacity = 1;
+    });
+
+    // Smooth scrolling for sidebar links
+    document.querySelectorAll('.sidebar nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        const top = target.getBoundingClientRect().top + window.scrollY - 40;
+        window.scrollTo({
+          top: top,
+          behavior: 'smooth'
         });
-    </script>
+      });
+    });
+
+    // Active link highlighting on scroll
+    const sections = document.querySelectorAll("section");
+    const links = document.querySelectorAll(".sidebar nav a");
+    
+    function updateActiveLink() {
+      let currentSection = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      
+      links.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").substring(1) === currentSection) {
+          link.classList.add("active");
+        }
+      });
+    }
+    
+    window.addEventListener("scroll", updateActiveLink);
+    window.addEventListener("DOMContentLoaded", updateActiveLink);
+
+    // Dark mode toggle using existing logic
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+        applyDarkMode();
+    } else {
+        applyLightMode();
+    }
+    } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    applyLightMode();
+    }
+
+
+    function switchTheme(e) {
+      if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        applyDarkMode();
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        applyLightMode();
+      }    
+    }
+
+    function applyDarkMode() {
+      document.documentElement.style.setProperty('--primary-bg', 'rgba(10,10,10,0.85)');
+      document.documentElement.style.setProperty('--sidebar-bg', 'rgba(0,0,0,0.95)');
+      document.documentElement.style.setProperty('--text-color', '#e0e0e0');
+      document.documentElement.style.setProperty('--card-bg', 'rgba(20,20,20,0.95)');
+      document.documentElement.style.setProperty('--text-light', '#aaa');
+      document.documentElement.style.setProperty('--accent-color', '#0ff');
+      document.documentElement.style.setProperty('--hover-bg', 'rgba(50,50,50,0.95)');
+      document.documentElement.style.setProperty('--card-shadow', '0 4px 16px rgba(0,0,0,0.8)');
+    }
+
+    function applyLightMode() {
+      document.documentElement.style.setProperty('--primary-bg', 'rgba(232,232,230,0.9)');
+      document.documentElement.style.setProperty('--sidebar-bg', 'rgba(17,17,17,0.95)');
+      document.documentElement.style.setProperty('--text-color', '#333');
+      document.documentElement.style.setProperty('--card-bg', 'rgba(245,245,243,0.95)');
+      document.documentElement.style.setProperty('--text-light', '#aaa');
+      document.documentElement.style.setProperty('--accent-color', '#0ff');
+      document.documentElement.style.setProperty('--hover-bg', 'rgba(34,34,34,0.95)');
+      document.documentElement.style.setProperty('--card-shadow', '0 4px 12px rgba(0,0,0,0.4)');
+    }
+
+    if (toggleSwitch) {
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    }
+  </script>
+
+    <footer id="contact-footer">
+    <h2>Contact</h2>
+
+    <p class="contact-email">
+        <a href="mailto:shawn.manuel@umontreal.ca">shawn.manuel@umontreal.ca</a>
+    </p>
+
+    <div class="footer-socials">
+        <a href="https://scholar.google.com/citations?hl=en&user=LxMWm1wAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://github.com/shwnmnl" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/shwnmnl/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/shwnmnl" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/shwnmnl" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://shiftingontologies.substack.com/" target="_blank" aria-label="Substack" class="social-icon substack-link"></a>
+    </div>
+
+    <p class="footer-note">
+        © Shawn Manuel · Montréal
+    </p>
+    </footer>
+
+
 </body>
 </html>
